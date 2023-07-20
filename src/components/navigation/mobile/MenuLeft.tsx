@@ -171,9 +171,8 @@ export function MenuLeft(props: Props) {
           onClick={props.onCloseMenu}
         />
 
-        <Image className="near-logotype" src={NearLogotype} alt="NEAR logotype" onClick={() => router.push('/')} />
         <button className="search-btn" style={{ backgroundImage: `url(${SearchIcon.src})` }} onClick={search}>
-          Search NEAR
+          Search
         </button>
         <AccordionMenu />
 

@@ -163,14 +163,6 @@ export const DesktopNavigation = () => {
   return (
     <StyledNavigation className={`${scrolled ? 'border-bottom' : ''}`}>
       <div className="container-xl container-fluid container-wrapper">
-        <Link href="/">
-          <Image
-            priority
-            className={signedIn ? 'logo-only' : ''}
-            src={signedIn ? LogoBlack : NearLogotype}
-            alt="NEAR"
-          />
-        </Link>
 
         <div className="form-wrapper">
           <form

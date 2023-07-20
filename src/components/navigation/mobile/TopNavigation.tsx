@@ -169,9 +169,6 @@ export function TopNavigation(props: Props) {
         </button>
       )}
 
-      <Link href="/" className={classNames(['logo-link', { large: !signedIn }])}>
-        <Image src={signedIn ? LogoBlack : NearLogotype} alt="NEAR logo" />
-      </Link>
 
       {!signedIn && (
         <>

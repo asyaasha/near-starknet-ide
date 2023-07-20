@@ -17,12 +17,11 @@ const wcV2InitOptions: any = {
 };
 
 const walletConnect = walletConnectModule(wcV2InitOptions);
-const ledger = ledgerModule();
 const injected = injectedModule();
 
 // initialize Onboard
 export const onboard = init({
-  wallets: [injected, walletConnect, ledger],
+  wallets: [injected, walletConnect],
   chains: [
     {
       id: 1,
@@ -111,7 +110,7 @@ export const useEthersProviderContext = singletonHook(defaultEthersProviderConte
 
       const previouslyConnectedWallets = JSON.parse(localStorage.getItem(web3onboardKey) || '[]');
 
-      if (previouslyConnectedWallets) {
+      if (previouslyConnectedWallets && previouslyConnectedWallets.length) {
         // You can also auto connect "silently" and disable all onboard modals to avoid them flashing on page load
         await onboard.connectWallet({
           autoSelect: {

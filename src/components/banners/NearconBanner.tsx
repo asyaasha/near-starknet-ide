@@ -92,28 +92,7 @@ export const NearconBanner = () => {
   return (
     <Wrapper>
       <Flex gap="24px" alignItems="center" justifyContent="center">
-        <Image src={icon} alt='nearcon-banner' />
-        <Text size="16px" weight="500" className='d-none d-sm-inline'>Early Bird Tickets are live!</Text>
-        <Link href='http://nearcon.org' target='_blank' className='d-none d-sm-inline banner-button desktop-button'>
-          <Button
-            label='View'
-            iconRight='ph-bold ph-arrow-right'
-            variant='primary'
-            fill='outline'
-            size='small'
-          />
-        </Link>
-
-        <Link href='http://nearcon.org' target='_blank' className='d-inline d-sm-none banner-button mobile-button'>
-          <Button
-            label='Early Bird Tickets'
-            iconRight='ph-bold ph-arrow-right'
-            variant='primary'
-            fill='outline'
-            size='small'
-          />
-        </Link>
-        <Button type="button" onClick={closeBanner} label='Close' icon='ph-fill ph-x-circle' size='small' className='close-button' />
+        <Text size="16px" weight="500" className='d-none d-sm-inline'>Starknet Hacker House 2023</Text>
       </Flex>
     </Wrapper>
   );

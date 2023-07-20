@@ -7,6 +7,8 @@ type VmState = {
   EthersProvider: any;
   Widget: any;
   near: any;
+  stContext: any;
+  StProvider: any;
 };
 
 type VmStore = VmState & {
@@ -16,6 +18,8 @@ type VmStore = VmState & {
 export const useVmStore = create<VmStore>((set) => ({
   cache: null,
   CommitButton: null,
+  stContext: null,
+  StProvider: null,
   ethersContext: null,
   EthersProvider: null,
   Widget: null,

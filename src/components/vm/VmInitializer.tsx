@@ -12,19 +12,10 @@ import { setupNightly } from '@near-wallet-selector/nightly';
 import { setupSender } from '@near-wallet-selector/sender';
 import { setupWelldoneWallet } from '@near-wallet-selector/welldone-wallet';
 import Big from 'big.js';
-import {
-  CommitButton,
-  EthersProviderContext,
-  useAccount,
-  useCache,
-  useInitNear,
-  useNear,
-  utils,
-  Widget,
-} from 'near-social-vm';
 import Link from 'next/link';
 import React, { useCallback, useEffect, useState } from 'react';
 
+import { useStProviderContext } from '@/data/stark3';
 import { useEthersProviderContext } from '@/data/web3';
 import { useSignInRedirect } from '@/hooks/useSignInRedirect';
 import { setupFastAuth } from '@/lib/selector/setup';
@@ -34,12 +25,25 @@ import { recordWalletConnect, reset as resetSegment } from '@/utils/analytics';
 import { networkId, signInContractId } from '@/utils/config';
 import { KEYPOM_OPTIONS } from '@/utils/keypom-options';
 
+import {
+  CommitButton,
+  EthersProviderContext,
+  StProviderContext,
+  useAccount,
+  useCache,
+  useInitNear,
+  useNear,
+  utils,
+  Widget,
+} from '../../../vm-social/src';
+
 export default function VmInitializer() {
   const [signedIn, setSignedIn] = useState(false);
   const [signedAccountId, setSignedAccountId] = useState(null);
   const [availableStorage, setAvailableStorage] = useState<Big | null>(null);
   const [walletModal, setWalletModal] = useState<WalletSelectorModal | null>(null);
   const ethersProviderContext = useEthersProviderContext();
+  const stProviderContext = useStProviderContext()
   const { initNear } = useInitNear();
   const near = useNear();
   const account = useAccount();
@@ -179,16 +183,20 @@ export default function VmInitializer() {
     setAuthStore,
   ]);
 
+  console.log({stProviderContext})
+
   useEffect(() => {
     setVmStore({
       cache,
       CommitButton,
+      stContext: stProviderContext,
+      StProvider: StProviderContext?.Provider,
       ethersContext: ethersProviderContext,
-      EthersProvider: EthersProviderContext.Provider,
+      EthersProvider: EthersProviderContext?.Provider,
       Widget,
       near,
     });
-  }, [cache, ethersProviderContext, setVmStore, near]);
+  }, [cache, stProviderContext, ethersProviderContext, setVmStore, near]);
 
   return <></>;
 }
