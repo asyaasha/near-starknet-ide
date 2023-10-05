@@ -2,8 +2,8 @@
 
 ## Using Starknet custom Components
 
-Starknet.js docs https://www.starknetjs.com/docs/guides/intro
-Near BOS docs https://docs.near.org/bos/components/widgets
+- Starknet.js docs https://www.starknetjs.com/docs/guides/intro
+- Near BOS docs https://docs.near.org/bos/components/widgets
 
 
 - use default "StConnect" component to integrate a staknet compadable wallet ( Argent X or Braavos ). Example of usecase deployed at "devtestst.testnet/widget/ArgentWallet" ( accessible by adding src address to default Widget component ie.
