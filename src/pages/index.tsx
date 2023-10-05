@@ -38,8 +38,8 @@ const HomePage: NextPageWithLayout = () => {
 
   return (
     <div style={{ display: 'flex', padding: '30px' }}>
-      <div  style={{ paddingRight: '5px' }}> Go to </div>
-      <Link href="/sandbox"> Sandbox --></Link>
+      <div style={{ paddingRight: '5px' }}> Go to </div>
+      <Link href="/sandbox"> Sandbox ~</Link>
     </div>
   );
 };

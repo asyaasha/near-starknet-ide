@@ -5,7 +5,7 @@
 /.pnp
 .pnp.js
 .pnpm-store 
-
+.idea
 # testing
 /coverage
 
