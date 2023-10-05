@@ -35,7 +35,7 @@ import {
   useNear,
   utils,
   Widget,
-} from '../../../vm-social/src';
+} from 'bos-vm';
 
 export default function VmInitializer() {
   const [signedIn, setSignedIn] = useState(false);

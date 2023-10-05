@@ -7,7 +7,8 @@ import { singletonHook } from 'react-singleton-hook';
 const defaultStProviderContext = { disconnect, arConnect: connect, arProvider: null, account: null };
 
 export const useStProviderContext = singletonHook(defaultStProviderContext, () => {
-  const [argent, setAgent] = useState(null);
+  const initial:any = null;
+  const [argent, setAgent] = useState(initial);
   const [stProvider, setStProvider] = useState(defaultStProviderContext);
 
   useEffect(() => {

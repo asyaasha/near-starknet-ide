@@ -381,27 +381,6 @@ export const MainNavigationMenu = () => {
               </NavigationMenu.Link>
             </NavigationMenu.Item>
           )}
-          <NavigationMenu.Item>
-            <NavigationMenu.Trigger className="NavigationMenuTrigger" onMouseEnter={recordMouseEnter}>
-              Discover
-            </NavigationMenu.Trigger>
-            <NavigationMenu.Content className="NavigationMenuContent">
-              <ul className="List two">
-                <ListItem title={navLinkData.components.title} route={navLinkData.components.link}>
-                  <i className="ph-duotone ph-shapes"></i>
-                  {navLinkData.components.description}
-                </ListItem>
-                <ListItem title={navLinkData.applications.title} route={navLinkData.applications.link}>
-                  <i className="ph-duotone ph-circles-four"></i>
-                  {navLinkData.applications.description}
-                </ListItem>
-                <ListItem title={navLinkData.gateways.title} route={navLinkData.gateways.link}>
-                  <i className="ph-duotone ph-spiral"></i>
-                  {navLinkData.gateways.description}
-                </ListItem>
-              </ul>
-            </NavigationMenu.Content>
-          </NavigationMenu.Item>
 
           <NavigationMenu.Item>
             <NavigationMenu.Trigger className="NavigationMenuTrigger" onMouseEnter={recordMouseEnter}>
@@ -443,50 +422,6 @@ export const MainNavigationMenu = () => {
                 <ListItem title={navLinkData.events.title} route={navLinkData.events.link}>
                   <i className="ph-duotone ph-calendar-blank"></i>
                   {navLinkData.events.description}
-                </ListItem>
-              </ul>
-            </NavigationMenu.Content>
-          </NavigationMenu.Item>
-
-          <NavigationMenu.Item>
-            <NavigationMenu.Trigger className="NavigationMenuTrigger" onMouseEnter={recordMouseEnter}>
-              Solutions
-            </NavigationMenu.Trigger>
-            <NavigationMenu.Content className="NavigationMenuContent">
-              <ul className="List two">
-                <ListItem title={navLinkData.developers.title} route={navLinkData.developers.link}>
-                  <i className="ph-duotone ph-code"></i>
-                  {navLinkData.developers.description}
-                </ListItem>
-                <ListItem title={navLinkData.founders.title} route={navLinkData.founders.link}>
-                  <i className="ph-duotone ph-potted-plant"></i>
-                  {navLinkData.founders.description}
-                </ListItem>
-                <ListItem title={navLinkData.earlyAdopters.title} route={navLinkData.earlyAdopters.link}>
-                  <i className="ph-duotone ph-leaf"></i>
-                  {navLinkData.earlyAdopters.description}
-                </ListItem>
-              </ul>
-            </NavigationMenu.Content>
-          </NavigationMenu.Item>
-
-          <NavigationMenu.Item>
-            <NavigationMenu.Trigger className="NavigationMenuTrigger" onMouseEnter={recordMouseEnter}>
-              More
-            </NavigationMenu.Trigger>
-            <NavigationMenu.Content className="NavigationMenuContent">
-              <ul className="List two">
-                <ListItem title={navLinkData.about.title} route={navLinkData.about.link}>
-                  <i className="ph-duotone ph-info"></i>
-                  {navLinkData.about.description}
-                </ListItem>
-                <ListItem title={navLinkData.news.title} route={navLinkData.news.link}>
-                  <i className="ph-duotone ph-newspaper"></i>
-                  {navLinkData.news.description}
-                </ListItem>
-                <ListItem title={navLinkData.learn.title} route={navLinkData.learn.link}>
-                  <i className="ph-duotone ph-books"></i>
-                  {navLinkData.learn.description}
                 </ListItem>
               </ul>
             </NavigationMenu.Content>
