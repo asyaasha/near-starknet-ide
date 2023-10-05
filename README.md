@@ -105,7 +105,11 @@ Folder Structure:
 2. Run `pnpm link ../VM`
 
 3. Any time you make changes to the `VM`, run `pnpm build` inside the `VM` project in order for the viewer project to pick up the changes
-<img width="1256" alt="Screen Shot 2023-10-05 at 2 18 16 AM" src="https://github.com/asyaasha/near-starknet-ide/assets/20131841/c285a851-218c-4353-b6d6-3ceda78fad37">
+
+Components examples
+
+<img width="1049" alt="Screen Shot 2023-10-05 at 3 01 48 AM" src="https://github.com/asyaasha/near-starknet-ide/assets/20131841/acb46faf-240c-4d21-866b-d9f12e8c30f0">
+
 <img width="1387" alt="Screen Shot 2023-10-05 at 2 39 25 AM" src="https://github.com/asyaasha/near-starknet-ide/assets/20131841/e530712e-3f5b-440f-8d21-eccc944a3cfd">
 
 
