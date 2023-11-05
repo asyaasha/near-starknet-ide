@@ -1,9 +1,6 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import styled from 'styled-components';
 
-import icon from '@/assets/images/nearcon_banner_2023.svg';
-import { Button } from '@/components/lib/Button';
 import { useBanner } from '@/hooks/useBanner';
 
 type FlexProps = {
@@ -81,18 +78,20 @@ const Text = styled.p<TextProps>`
 `;
 
 export const NearconBanner = () => {
-  const [ isBannerVisible, setBanners ] = useBanner();
+  const [isBannerVisible, setBanners] = useBanner();
 
   const closeBanner = () => {
     setBanners(!isBannerVisible);
-  }
+  };
 
   if (!isBannerVisible) return null;
 
   return (
     <Wrapper>
       <Flex gap="24px" alignItems="center" justifyContent="center">
-        <Text size="16px" weight="500" className='d-none d-sm-inline'>Starknet Hacker House 2023</Text>
+        <Text size="16px" weight="500" className="d-none d-sm-inline">
+          Starknet Hacker House 2023
+        </Text>
       </Flex>
     </Wrapper>
   );

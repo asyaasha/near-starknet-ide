@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
@@ -11,8 +10,6 @@ import { useAuthStore } from '@/stores/auth';
 import { recordEvent } from '@/utils/analytics';
 import { flushEvents } from '@/utils/analytics';
 
-import LogoBlack from '../icons/logo-black.svg';
-import NearLogotype from '../icons/near-logotype.svg';
 import ReturnIconImage from '../icons/return.svg';
 import SearchIconImage from '../icons/search.svg';
 import { NotificationButton } from '../NotificationButton';
@@ -163,7 +160,6 @@ export const DesktopNavigation = () => {
   return (
     <StyledNavigation className={`${scrolled ? 'border-bottom' : ''}`}>
       <div className="container-xl container-fluid container-wrapper">
-
         <div className="form-wrapper">
           <form
             onSubmit={(e) => {
