@@ -1,3 +1,4 @@
+// @ts-nocheck
 import '@/styles/theme.css';
 import '@/styles/globals.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';

@@ -1,4 +1,4 @@
-# NEAR Discovery based IDE with Starknet.js support
+c# NEAR Discovery based IDE with Starknet.js support
 
 ## Using Starknet custom Components
 
