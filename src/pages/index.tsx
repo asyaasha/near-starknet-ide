@@ -1,6 +1,7 @@
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
+
 import { useBosComponents } from '@/hooks/useBosComponents';
 import { useDefaultLayout } from '@/hooks/useLayout';
 import { useAuthStore } from '@/stores/auth';
@@ -19,6 +20,7 @@ const HomePage: NextPageWithLayout = () => {
   const [componentProps, setComponentProps] = useState<Record<string, unknown>>({});
 
   useEffect(() => {
+    console.log({ components });
     const optimisticAccountId = window.localStorage.getItem(LS_ACCOUNT_ID);
     setSignedInOptimistic(!!optimisticAccountId);
   }, []);

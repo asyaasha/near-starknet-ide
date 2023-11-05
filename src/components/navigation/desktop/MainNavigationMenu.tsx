@@ -6,7 +6,6 @@ import { forwardRef } from 'react';
 import styled from 'styled-components';
 
 import { useAuthStore } from '@/stores/auth';
-import { recordMouseEnter } from '@/utils/analytics';
 
 import { CurrentComponent } from '../CurrentComponent';
 import { navLinkData } from '../org-links';
@@ -335,7 +334,7 @@ const ListItem = forwardRef<
 >(({ className, children, title, ...props }, forwardedRef) => {
   if (props.route) {
     return (
-      <li onMouseEnter={recordMouseEnter}>
+      <li>
         <NavigationMenu.Link asChild>
           <Link href={props.route} className={classNames('ListItemLink', className)}>
             <div className="ListItemHeading">{title}</div>
@@ -346,7 +345,7 @@ const ListItem = forwardRef<
     );
   } else {
     return (
-      <li onMouseEnter={recordMouseEnter}>
+      <li>
         <NavigationMenu.Link asChild>
           <a
             className={classNames('ListItemLink', className)}
@@ -383,9 +382,7 @@ export const MainNavigationMenu = () => {
           )}
 
           <NavigationMenu.Item>
-            <NavigationMenu.Trigger className="NavigationMenuTrigger" onMouseEnter={recordMouseEnter}>
-              Develop
-            </NavigationMenu.Trigger>
+            <NavigationMenu.Trigger className="NavigationMenuTrigger">Develop</NavigationMenu.Trigger>
             <NavigationMenu.Content className="NavigationMenuContent develop">
               <CurrentComponent />
               <ul className="List one">
@@ -406,9 +403,7 @@ export const MainNavigationMenu = () => {
           </NavigationMenu.Item>
 
           <NavigationMenu.Item>
-            <NavigationMenu.Trigger className="NavigationMenuTrigger" onMouseEnter={recordMouseEnter}>
-              Connect
-            </NavigationMenu.Trigger>
+            <NavigationMenu.Trigger className="NavigationMenuTrigger">Connect</NavigationMenu.Trigger>
             <NavigationMenu.Content className="NavigationMenuContent">
               <ul className="List two">
                 <ListItem title={navLinkData.people.title} route={navLinkData.people.link}>

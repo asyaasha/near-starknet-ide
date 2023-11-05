@@ -44,17 +44,14 @@ export interface LoadOptions {
   queueOptions?: QueueOptions;
   loadIntegration?: boolean;
   lockIntegrationsVersion?: boolean;
-  secureCookie?: boolean;
   sameSiteCookie?: string;
   logLevel?: string;
   getSourceConfig?: () => string | ApiObject | Promise<ApiObject> | Promise<string>;
-  setCookieDomain?: string;
   sendAdblockPage?: boolean;
   sendAdblockPageOptions?: ApiOptions;
   clientSuppliedCallbacks?: { string: () => void };
   useBeacon?: boolean;
   beaconQueueOptions?: BeaconQueueOptions;
-  cookieConsentManager?: CookieConsentManager;
   anonymousIdOptions?: AnonymousIdOptions;
   destSDKBaseURL?: string;
   sessions?: {

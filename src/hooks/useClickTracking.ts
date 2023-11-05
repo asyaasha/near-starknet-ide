@@ -1,15 +1,11 @@
 import { useCallback, useEffect } from 'react';
 
-import { recordClick, recordTouchStart } from '@/utils/analytics';
-
 export function useClickTracking() {
   const onClickEvent = useCallback((event: PointerEvent) => {
     switch (event.pointerType) {
       case 'touch':
-        recordTouchStart(event);
         break;
       default:
-        recordClick(event);
         break;
     }
   }, []);

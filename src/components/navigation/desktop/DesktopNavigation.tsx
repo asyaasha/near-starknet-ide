@@ -7,8 +7,6 @@ import { Button } from '@/components/lib/Button';
 import { useBosComponents } from '@/hooks/useBosComponents';
 import { useSignInRedirect } from '@/hooks/useSignInRedirect';
 import { useAuthStore } from '@/stores/auth';
-import { recordEvent } from '@/utils/analytics';
-import { flushEvents } from '@/utils/analytics';
 
 import ReturnIconImage from '../icons/return.svg';
 import SearchIconImage from '../icons/search.svg';
@@ -148,12 +146,10 @@ export const DesktopNavigation = () => {
   }, []);
 
   function handleSignIn() {
-    flushEvents();
     requestAuthentication();
   }
 
   function handleCreateAccount() {
-    flushEvents();
     requestAuthentication(true);
   }
 
@@ -173,7 +169,6 @@ export const DesktopNavigation = () => {
               style={{ backgroundImage: `url(${SearchIconImage.src})` }}
               onFocus={() => {
                 setSearchIsFocused(true);
-                recordEvent('click-navigation-search');
               }}
               onBlur={() => {
                 setSearchIsFocused(false);

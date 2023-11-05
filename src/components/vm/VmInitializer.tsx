@@ -12,19 +12,6 @@ import { setupNightly } from '@near-wallet-selector/nightly';
 import { setupSender } from '@near-wallet-selector/sender';
 import { setupWelldoneWallet } from '@near-wallet-selector/welldone-wallet';
 import Big from 'big.js';
-import Link from 'next/link';
-import React, { useCallback, useEffect, useState } from 'react';
-
-import { useStProviderContext } from '@/data/stark3';
-import { useEthersProviderContext } from '@/data/web3';
-import { useSignInRedirect } from '@/hooks/useSignInRedirect';
-import { setupFastAuth } from '@/lib/selector/setup';
-import { useAuthStore } from '@/stores/auth';
-import { useVmStore } from '@/stores/vm';
-import { recordWalletConnect, reset as resetSegment } from '@/utils/analytics';
-import { networkId, signInContractId } from '@/utils/config';
-import { KEYPOM_OPTIONS } from '@/utils/keypom-options';
-
 import {
   CommitButton,
   EthersProviderContext,
@@ -36,6 +23,17 @@ import {
   utils,
   Widget,
 } from 'bos-vm';
+import Link from 'next/link';
+import React, { useCallback, useEffect, useState } from 'react';
+
+import { useStProviderContext } from '@/data/stark3';
+import { useEthersProviderContext } from '@/data/web3';
+import { useSignInRedirect } from '@/hooks/useSignInRedirect';
+import { setupFastAuth } from '@/lib/selector/setup';
+import { useAuthStore } from '@/stores/auth';
+import { useVmStore } from '@/stores/vm';
+import { networkId, signInContractId } from '@/utils/config';
+import { KEYPOM_OPTIONS } from '@/utils/keypom-options';
 
 export default function VmInitializer() {
   const [signedIn, setSignedIn] = useState(false);
@@ -43,7 +41,7 @@ export default function VmInitializer() {
   const [availableStorage, setAvailableStorage] = useState<Big | null>(null);
   const [walletModal, setWalletModal] = useState<WalletSelectorModal | null>(null);
   const ethersProviderContext = useEthersProviderContext();
-  const stProviderContext = useStProviderContext()
+  const stProviderContext = useStProviderContext();
   const { initNear } = useInitNear();
   const near = useNear();
   const account = useAccount();
@@ -57,7 +55,6 @@ export default function VmInitializer() {
     initNear &&
       initNear({
         networkId,
-        walletConnectCallback: recordWalletConnect,
         selector: setupWalletSelector({
           network: networkId,
           modules: [
@@ -110,6 +107,8 @@ export default function VmInitializer() {
       return;
     }
     near.selector.then((selector: any) => {
+      console.log({ near });
+      console.log({ selector });
       setWalletModal(setupModal(selector, { contractId: near.config.contractName }));
     });
   }, [near]);
@@ -129,7 +128,6 @@ export default function VmInitializer() {
     near.accountId = null;
     setSignedIn(false);
     setSignedAccountId(null);
-    resetSegment();
     localStorage.removeItem('accountId');
   }, [near]);
 
@@ -183,7 +181,7 @@ export default function VmInitializer() {
     setAuthStore,
   ]);
 
-  console.log({stProviderContext})
+  console.log({ stProviderContext });
 
   useEffect(() => {
     setVmStore({

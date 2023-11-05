@@ -11,7 +11,6 @@ import { useVmStore } from '@/stores/vm';
 
 import { Spinner } from '../lib/Spinner';
 import BannerOboarding from './Banners/BannerOboarding';
-import VsCodeBanner from './Banners/VsCodeBanner';
 import MainWrapper from './css/MainWrapper';
 import MobileBlocker from './Mobile/MobileBlocker';
 import Modals from './Modals';
@@ -550,7 +549,6 @@ export const Sandbox = ({ onboarding = false }) => {
               />
             )}
             <div className={showEditor ? `` : ``}>
-              {onboarding || <VsCodeBanner />}
               {onboarding && <BannerOboarding handleExitOnboarding={handleExitOnboarding} />}
 
               <div className="container-fluid mt-1" style={{ position: 'relative' }}>

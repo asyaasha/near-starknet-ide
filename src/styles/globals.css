@@ -34,11 +34,13 @@ a:hover {
   text-decoration: none;
 }
 
-#near-wallet-selector-modal .open{
+#near-wallet-selector-modal .open {
   z-index: 1001;
 }
 
-#w3m-modal { z-index: 1002 }
+#w3m-modal {
+  z-index: 1002;
+}
 
 #launcher {
   color-scheme: light;
@@ -56,6 +58,10 @@ a:hover {
   transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
   transition-property: opacity, top, bottom;
   right: 10px;
+}
+
+nextjs-portal {
+  display: none;
 }
 
 @media (max-width: 650px) {

@@ -16,6 +16,8 @@ const TabProps = ({ tab, widgetProps, setWidgetProps, propsError }) => {
     [setWidgetProps],
   );
 
+  console.log('error: ', propsError);
+
   return (
     <div className={`${tab === Tab.Props ? '' : 'visually-hidden'}`}>
       <div className="form-control" style={{ height: '70vh' }}>
@@ -28,8 +30,6 @@ const TabProps = ({ tab, widgetProps, setWidgetProps, propsError }) => {
           }}
         />
       </div>
-      <div className=" mb-3">^^ Props for debugging (in JSON)</div>
-      {propsError && <pre className="alert alert-danger">{propsError}</pre>}
     </div>
   );
 };
