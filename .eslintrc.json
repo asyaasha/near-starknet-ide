@@ -3,7 +3,6 @@
   "plugins": ["simple-import-sort", "@typescript-eslint"],
   "root": true,
   "rules": {
-    "@typescript-eslint/ban-ts-ignore": "off",
     "simple-import-sort/imports": "warn",
     "@typescript-eslint/no-explicit-any": "warn",
     "@typescript-eslint/consistent-type-imports": "warn",
