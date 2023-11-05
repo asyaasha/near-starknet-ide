@@ -2,16 +2,21 @@ c# NEAR Discovery based IDE with Starknet.js support
 
 ## Using Starknet custom Components
 
-https://www.starknetjs.com/docs/guides/intro
+- Starknet.js docs https://www.starknetjs.com/docs/guides/intro
+- Near BOS docs https://docs.near.org/bos/components/widgets
+
 
 - use default "StConnect" component to integrate a staknet compadable wallet ( Argent X or Braavos ). Example of usecase deployed at "devtestst.testnet/widget/ArgentWallet" ( accessible by adding src address to default Widget component ie.
 `<Widget src="devtestst.testnet/widget/ArgentWallet" />`
+
   
 <img width="1010" alt="Screen Shot 2023-10-05 at 2 36 26 AM" src="https://github.com/asyaasha/near-starknet-ide/assets/20131841/94a91612-5c78-4e7d-98af-5377bcb527d8">
 
-Starknet.js methods can be accessed by using  starknet.st prefix on regular Starknet.js syntax. Ie.
 
-- starknet.stContract to read a starknet based contract
+Starknet.js methods can be accessed by using starknet.st prefix on regular Starknet.js syntax. Ie.
+
+- starknet.stContract to create a new starknet based contract object
+  
 ```
 const myTestContract = new starknet.stContract(
   abi.abi,
@@ -100,7 +105,11 @@ Folder Structure:
 2. Run `pnpm link ../VM`
 
 3. Any time you make changes to the `VM`, run `pnpm build` inside the `VM` project in order for the viewer project to pick up the changes
-<img width="1256" alt="Screen Shot 2023-10-05 at 2 18 16 AM" src="https://github.com/asyaasha/near-starknet-ide/assets/20131841/c285a851-218c-4353-b6d6-3ceda78fad37">
+
+Components examples
+
+<img width="1049" alt="Screen Shot 2023-10-05 at 3 01 48 AM" src="https://github.com/asyaasha/near-starknet-ide/assets/20131841/acb46faf-240c-4d21-866b-d9f12e8c30f0">
+
 <img width="1387" alt="Screen Shot 2023-10-05 at 2 39 25 AM" src="https://github.com/asyaasha/near-starknet-ide/assets/20131841/e530712e-3f5b-440f-8d21-eccc944a3cfd">
 
 
