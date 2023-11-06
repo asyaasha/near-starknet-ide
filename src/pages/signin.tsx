@@ -4,15 +4,12 @@ import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 
 import { Button } from '@/components/lib/Button';
-import { openToast } from '@/components/lib/Toast';
 import { useClearCurrentComponent } from '@/hooks/useClearCurrentComponent';
 import { useDefaultLayout } from '@/hooks/useLayout';
 import { useSignInRedirect } from '@/hooks/useSignInRedirect';
 import { useAuthStore } from '@/stores/auth';
 import type { NextPageWithLayout } from '@/utils/types';
 
-import { handleCreateAccount } from '../utils/auth';
-import { isValidEmail } from '../utils/form-validation';
 
 const SignInPage: NextPageWithLayout = () => {
   const { register, handleSubmit, setValue } = useForm();
@@ -29,53 +26,14 @@ const SignInPage: NextPageWithLayout = () => {
     }
   }, [redirect, signedIn]);
 
-  const onSubmit = handleSubmit(async (data) => {
-    if (!data.email) return;
-
-    try {
-      const { publicKey, email } = await handleCreateAccount(null, data.email, true);
-      router.push(`/verify-email?publicKey=${publicKey}&email=${email}&isRecovery=true`);
-    } catch (error: any) {
-      console.log(error);
-
-      if (typeof error?.message === 'string') {
-        openToast({
-          type: 'ERROR',
-          title: error.message,
-        });
-      } else {
-        openToast({
-          type: 'ERROR',
-          title: 'Something went wrong',
-        });
-      }
-    }
-  });
 
   return (
     <StyledContainer>
-      <FormContainer onSubmit={onSubmit}>
+      <FormContainer>
         <header>
           <h1>{'Sign In'}</h1>
           <p className="desc">Use this account to sign in everywhere on NEAR, no password required.</p>
         </header>
-
-        <InputContainer>
-          <label htmlFor="email">Email</label>
-
-          <input
-            {...register('email', {
-              required: 'Please enter a valid email address',
-            })}
-            onChange={(e) => {
-              setValue('email', e.target.value);
-              if (!isValidEmail(e.target.value)) return;
-            }}
-            placeholder="user_name@email.com"
-            type="email"
-            required
-          />
-        </InputContainer>
 
         <Button type="submit" label="Continue" variant="affirmative" onClick={onSubmit} />
         <Button type="button" label="Continue with wallet" variant="primary" onClick={requestSignInWithWallet} />

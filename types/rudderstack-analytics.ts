@@ -107,3 +107,12 @@ export default interface Analytics {
   endSession(): void;
   getSessionId(): number | null;
 }
+export default interface Transaction {
+  signerId: string;
+  publicKey: any;
+  nonce: any;
+  receiverId: string;
+  actions: any[];
+  blockHash: Uint8Array;
+  encode(): Uint8Array;
+}

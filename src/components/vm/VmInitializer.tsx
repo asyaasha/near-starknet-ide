@@ -12,19 +12,6 @@ import { setupNightly } from '@near-wallet-selector/nightly';
 import { setupSender } from '@near-wallet-selector/sender';
 import { setupWelldoneWallet } from '@near-wallet-selector/welldone-wallet';
 import Big from 'big.js';
-import Link from 'next/link';
-import React, { useCallback, useEffect, useState } from 'react';
-
-import { useStProviderContext } from '@/data/stark3';
-import { useEthersProviderContext } from '@/data/web3';
-import { useSignInRedirect } from '@/hooks/useSignInRedirect';
-import { setupFastAuth } from '@/lib/selector/setup';
-import { useAuthStore } from '@/stores/auth';
-import { useVmStore } from '@/stores/vm';
-import { recordWalletConnect, reset as resetSegment } from '@/utils/analytics';
-import { networkId, signInContractId } from '@/utils/config';
-import { KEYPOM_OPTIONS } from '@/utils/keypom-options';
-
 import {
   CommitButton,
   EthersProviderContext,
@@ -36,6 +23,17 @@ import {
   utils,
   Widget,
 } from 'bos-vm';
+import Link from 'next/link';
+import React, { useCallback, useEffect, useState } from 'react';
+
+import { useStProviderContext } from '@/data/stark3';
+import { useEthersProviderContext } from '@/data/web3';
+import { useSignInRedirect } from '@/hooks/useSignInRedirect';
+import { useAuthStore } from '@/stores/auth';
+import { useVmStore } from '@/stores/vm';
+import { recordWalletConnect, reset as resetSegment } from '@/utils/analytics';
+import { networkId, signInContractId } from '@/utils/config';
+import { KEYPOM_OPTIONS } from '@/utils/keypom-options';
 
 export default function VmInitializer() {
   const [signedIn, setSignedIn] = useState(false);
@@ -43,7 +41,7 @@ export default function VmInitializer() {
   const [availableStorage, setAvailableStorage] = useState<Big | null>(null);
   const [walletModal, setWalletModal] = useState<WalletSelectorModal | null>(null);
   const ethersProviderContext = useEthersProviderContext();
-  const stProviderContext = useStProviderContext()
+  const stProviderContext = useStProviderContext();
   const { initNear } = useInitNear();
   const near = useNear();
   const account = useAccount();
@@ -72,14 +70,6 @@ export default function VmInitializer() {
             }),
             setupNightly(),
             setupWelldoneWallet(),
-            setupFastAuth({
-              networkId,
-              signInContractId,
-              relayerUrl:
-                networkId === 'testnet'
-                  ? 'http://34.70.226.83:3030/relay'
-                  : 'https://near-relayer-mainnet.api.pagoda.co/relay',
-            }) as any, // TODO: Refactor setupFastAuth() to TS
             setupKeypom({
               trialAccountSpecs: {
                 url:
@@ -183,7 +173,7 @@ export default function VmInitializer() {
     setAuthStore,
   ]);
 
-  console.log({stProviderContext})
+  console.log({ stProviderContext });
 
   useEffect(() => {
     setVmStore({
