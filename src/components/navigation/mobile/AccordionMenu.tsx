@@ -9,144 +9,10 @@ import styled from 'styled-components';
 import { CurrentComponent } from '../CurrentComponent';
 import { navLinkData } from '../org-links';
 
-const Wrapper = styled.div`
-  .AccordionItem {
-    all: unset;
-    overflow: hidden;
-    margin-top: 1px;
-    border-bottom: 1px solid #eeeeec;
-  }
-
-  .AccordionItem:first-child {
-    margin-top: 0;
-    border-top: 1px solid #eeeeec;
-  }
-
-  .AccordionItem:last-child {
-    border-bottom: none;
-  }
-
-  .AccordionItem:focus-within {
-    position: relative;
-    z-index: 1;
-  }
-
-  .AccordionHeader {
-    display: flex;
-  }
-
-  .AccordionTrigger {
-    all: unset;
-    font-family: inherit;
-    background-color: transparent;
-    height: 50px;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 1;
-    color: #1b1b18;
-  }
-
-  .AccordionTrigger:hover {
-    background-color: white;
-  }
-
-  .AccordionContent {
-    overflow: hidden;
-    font-size: 15px;
-    color: #1b1b18;
-    background-color: white;
-  }
-
-  .AccordionContent ul {
-    padding: 0;
-    list-style: none;
-  }
-
-  .AccordionContent[data-state='open'] {
-    animation: slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1);
-  }
-  .AccordionContent[data-state='closed'] {
-    animation: slideUp 300ms cubic-bezier(0.87, 0, 0.13, 1);
-  }
-
-  .AccordionChevron {
-    color: #868682;
-    transition: transform 300ms cubic-bezier(0.87, 0, 0.13, 1);
-  }
-  .AccordionTrigger[data-state='open'] > .AccordionChevron {
-    transform: rotate(180deg);
-  }
-
-  .ListItemLink {
-    display: block;
-    outline: none;
-    text-decoration: none;
-    user-select: none;
-    padding: 16px 8px 4px 8px;
-    padding-left: 55px;
-    border-radius: 6px;
-    font-size: 15px;
-    line-height: 1;
-    position: relative;
-  }
-  .ListItemLink i {
-    position: absolute;
-    top: 50%;
-    left: 16px;
-    transform: translateY(-50%);
-    font-size: 22px;
-    color: #706f6c;
-  }
-
-  .ListItemLink:hover {
-    text-decoration: none;
-    background-color: #f3f3f2;
-  }
-
-  .ListItemHeading {
-    font-weight: 500;
-    line-height: 1.2;
-    margin-bottom: 5px;
-    color: #1b1b18;
-  }
-
-  .ListItemText {
-    line-height: 1.4;
-    font-weight: initial;
-    color: #868682;
-  }
-
-  @keyframes slideDown {
-    from {
-      height: 0;
-    }
-    to {
-      height: var(--radix-accordion-content-height);
-    }
-  }
-
-  @keyframes slideUp {
-    from {
-      height: var(--radix-accordion-content-height);
-    }
-    to {
-      height: 0;
-    }
-  }
-`;
-
 const AccordionTrigger = forwardRef<HTMLButtonElement, ComponentProps<typeof Accordion.Trigger>>(
   ({ children, className, ...props }, forwardedRef) => (
     <Accordion.Header className="AccordionHeader">
-      <Accordion.Trigger
-        className={classNames('AccordionTrigger', className)}
-        {...props}
-        ref={forwardedRef}
-      >
+      <Accordion.Trigger className={classNames('AccordionTrigger', className)} {...props} ref={forwardedRef}>
         {children}
         <i className="ph ph-caret-down AccordionChevron" aria-hidden></i>
       </Accordion.Trigger>
@@ -203,7 +69,7 @@ const ListItem = forwardRef<
 ListItem.displayName = 'ListItem';
 
 export const AccordionMenu = () => (
-  <Wrapper>
+  <div>
     <Accordion.Root className="AccordionRoot" type="single" collapsible>
       <Accordion.Item className="AccordionItem" value="item-1">
         <AccordionTrigger>Discover</AccordionTrigger>
@@ -306,5 +172,5 @@ export const AccordionMenu = () => (
         </Accordion.Content>
       </Accordion.Item>
     </Accordion.Root>
-  </Wrapper>
+  </div>
 );
