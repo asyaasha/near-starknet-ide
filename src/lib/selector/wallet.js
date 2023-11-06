@@ -80,13 +80,15 @@ export class FastAuthWallet {
     this.assertValidSigner(signerId);
 
     const account = (await this.getAccounts())[0];
-
+    console.log('account');
+    console.log(account);
     const signedDelegate = await account.signedDelegate({
       actions: actions.map((action) => createAction(action)),
       blockHeightTtl: 60,
       receiverId,
     });
-
+    console.log('signedDelegate');
+    console.log(signedDelegate);
     await fetch(this.relayerUrl, {
       method: 'POST',
       mode: 'cors',
