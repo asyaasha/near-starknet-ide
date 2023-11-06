@@ -20,7 +20,7 @@ const HomePage: NextPageWithLayout = () => {
   const [componentProps, setComponentProps] = useState<Record<string, unknown>>({});
 
   useEffect(() => {
-    console.log({ components });
+    console.log('use effect components:', components);
     const optimisticAccountId = window.localStorage.getItem(LS_ACCOUNT_ID);
     setSignedInOptimistic(!!optimisticAccountId);
   }, []);

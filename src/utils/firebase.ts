@@ -4,5 +4,11 @@ import { getAuth } from 'firebase/auth';
 import { network } from './config';
 
 // Initialize Firebase
-export const firebaseApp = initializeApp(network.fastAuth.firebase);
+export let firebaseApp: any;
+try {
+  firebaseApp = initializeApp(network.fastAuth.firebase);
+} catch (e) {
+  console.log(e);
+}
+
 export const firebaseAuth = getAuth(firebaseApp);

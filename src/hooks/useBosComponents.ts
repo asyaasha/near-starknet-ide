@@ -3,6 +3,8 @@ import { networkId } from '@/utils/config';
 
 export function useBosComponents() {
   const components = componentsByNetworkId[networkId];
+  console.log('useBosComponents components');
+  console.log(components);
 
   if (!components) {
     throw new Error(

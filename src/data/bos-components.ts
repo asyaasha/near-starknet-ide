@@ -41,7 +41,7 @@ type NetworkComponents = {
   wrapper: string;
 };
 
-export const componentsByNetworkId: Record<NetworkId, NetworkComponents | undefined> = {
+export const componentsByNetworkId: Record<NetworkId, any | undefined> = {
   // localnet: undefined,
   testnet: {
     bosDirectory: 'one.testnet/widget/BOSDirectory',
@@ -65,6 +65,7 @@ export const componentsByNetworkId: Record<NetworkId, NetworkComponents | undefi
       learningLinks: 'discom.testnet/widget/NearOrg.LearningLinks',
       usePage: 'discom.testnet/widget/NearOrg.UsePage',
     },
+    addressInput: 'devtestst.testnet/widget/AddressInput',
     notificationButton: 'discom.testnet/widget/NotificationButton',
     notificationsPage: 'discom.testnet/widget/NotificationsPage',
     peoplePage: 'discom.testnet/widget/PeoplePage',
